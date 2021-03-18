@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Predictor</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.btn {
+display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0);
+border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em;
+}.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
+.btn-large {
+padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+}
+.btn:hover {
+color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear;
+-ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear;
+}.btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff;
+}
+.btn-primary.active { color: rgba(255, 255, 255, 0.75); }
+.btn-primary {
+background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4);
+background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
+.btn-block { width: 50%; display:block; }
+
+* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
+ body {
+ width:100%;
+ height:80%;
+ font-family:'Open Sans',sans-serif;
+ background:#0f2862;
+ background-image: url('/static/he2.jpg');
+ background-repeat:no-repeat;
+ background-repeat: no-repeat;
+ background-size: cover;
+  background-size: 100%;
+ color:#fff;;
+ font-size:15px;
+ text-align:center;
+ letter-spacing:1.2px;
+ background:-ms-radial-gradient(0% 100%,ellipse cover,rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-ms-linear-gradient(top,rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%),-ms-linear-gradient(-45eg,#670d10 0%,#092756 100%);
+ }
+ .login
+ {
+ position:absolute;
+ top:55%;
+ left:50%;
+ margin:-200px;
+ width:400px;
+ height:100%;
+ }
+ input
+ {
+ width:89%;
+ margin-bottom:6px;
+ background:rgba(0.3,0.3,0,0);
+ border:none;
+ outline:none;
+ padding:14px;
+ color:#fff;
+ text-shadow:1px 1px 1px rgba(0,0.3,0,0);
+ border:1px solid rgba(0,0,0,0.3);
+ border-redius:4px;
+ box-shadow:inset 0 -5px 45px rgba(100,100,100,0.2),0 1px 1px rgba(255,255,255,255);
+ -webkit-transition:box-shadow .5s ease;
+ -moz-transistion:box-shadow .5s ease;
+ -o-transistion:box-shadow .5s ease;
+ -ms-transition:box-shadow .5s ease;
+ transition: box-shadow .5s ease;
+ }
+ input:focus{
+ box-shadow:inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
+ }
+ h1
+ {
+ color:white;
+ }
+</style>
+</head>
+<body>
+<center>
+<h1 style="color:Dodgerblue"><u>HEART DISEASE PREDICTOR</u></h1>
+<div class="login">
+<form action={{url_for('predict')}} method="POST">
+<input class="input-form" type="text" name="Age" placeholder="AGE"><br>
+<select name="sex_0" class="input-form" type="text" placeholder="Gender">
+<option value="Female">Female</option>
+<option value="Male">male</option>
+</select><br>
+<input class="form-input" type="text" name="trestbps" placeholder="resting blood pressure"><br>
+<input class="form-input" type="text" name="chol" placeholder="cholestrol"><br>
+<input class="form-input" type="text" name="thalach" placeholder="maxheartrate"><br>
+<input class="form-input" type="text" name="oldpeak" placeholder="ST depression"><br>
+Chestpain:-<select name="cp_0" class="input-form" type="text" placeholder="chestpain">
+<option value="typical_angina">typical_angina</option>
+<option value="Atypica_angina">Atypical_angina</option>
+<option value="Non_anginal">Non-anginal pain</option>
+<option value="asymptomatic">Asymptomatic</option>
+</select><br><br>
+Fasting_blood_sugar:-<select name="fbs_0" class="form-input" type="text" placeholder="fasting_blood_sugar">
+<option value="True">True</option>
+<option value="False">False</option>
+</select><br><br>  
+Electrocardiographic_results:-<select name="restecg_0" class="form-input" type="text" placeholder="electrocardiographic_results">
+<option value="normal">Normal</option>
+<option value="ST-T wave abnormality">ST-T wave abnormality</option>
+<option value="ventricular hypertrophy">ventricular hypertrophy</option>
+</select><br><br>
+Exercise_induced_angina:-<select name="exang_0" class="form-input" type="text" placeholder="exercise_induced_angina">
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+</select><br><br>
+Peak_exercise_ST_segment:-<select name="slope_0" class="form-input" type="text" placeholder="peak_exercise_ST_segment">
+<option value="upsloping">upsloping</option>
+<option value="Flat">Flat</option>
+<option value="downsloping">downsloping</option>
+</select><br><br>
+No.of_major_vessels:-<select name="ca_0" class="form-input" type="text" placeholder="no.of_major_vessels">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select><br><br>
+Thalassemia:-<select name="thal_0" class="form-input" type="text" placeholder="Thalassemia">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select><br><br>
+<center><button type="submit" class="btn btn-primary btn-block btn-large">Predictss</button></center>
+</form>
+ <br><br><h3>{{ prediction_text }}<h3>
+</div>
+</center>
+</body>
+</html>
