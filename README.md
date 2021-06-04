@@ -1,2 +1,2 @@
 # Heart-Predictor
-I'm predict the weather the given person heart disease or not
+I'm predict, weather that given person having heart disease or not
